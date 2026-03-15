@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+@import "tailwindcss";
+
+:root {
+  --background: #0b0b0b;
+  --foreground: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+:root {
+  --background: #0b0b0b;
+  --foreground: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.phone-input-dark .PhoneInputInput {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  width: 100%;
+  min-width: 0;
+}
+
+.phone-input-dark .PhoneInputInput::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.phone-input-dark .PhoneInputCountry {
+  margin-right: 0.75rem;
+}
+
+.phone-input-dark .PhoneInputCountrySelectArrow {
+  color: #d4af37;
+}
+
+.phone-input-dark .PhoneInputCountryIcon {
+  box-shadow: none;
+}
