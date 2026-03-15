@@ -79,7 +79,7 @@ const navLinks = [
   { name: "Export Procedure", href: "/export-procedure" },
   { name: "Verification", href: "/verification-compliance" },
   { name: "Documentation", href: "/documentation" },
-  // { name: "Contact", href: "/contact" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const footerCompanyLinks = [
