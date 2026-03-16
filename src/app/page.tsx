@@ -36,7 +36,7 @@ const products = [
   {
     title: "Gold Bars",
     description:
-      "Preferred by refineries, bullion dealers, and international buyers for structured sourcing discussions.",
+      "Preferred by refineries, bullion dealers and international buyers for structured sourcing discussions.",
     image: "/images/gold-bars.png",
   },
   {
