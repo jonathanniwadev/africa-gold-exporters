@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import PhoneInput from "react-phone-number-input";
+import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 
 type BuyerType =
@@ -15,7 +15,7 @@ type BuyerType =
   | "Broker"
   | "Other";
 
-type ProductInterest = "" | "Gold Bars" | "Gold Nuggets" | "Gold Dust";
+type ProductInterest = "" | "Gold Bars" | "Gold Nuggets";
 
 type FormData = {
   fullName: string;
@@ -439,6 +439,17 @@ const getInputClass = (hasError?: boolean) =>
       : "border-white/10 focus:border-[#d4af37]"
   }`;
 
+const MAX_PHONE_DIGITS = 15;
+
+const sanitizePhoneValue = (value: string) => {
+  if (!value) return "";
+
+  const hasPlus = value.startsWith("+");
+  const digitsOnly = value.replace(/\D/g, "").slice(0, MAX_PHONE_DIGITS);
+
+  return hasPlus ? `+${digitsOnly}` : digitsOnly;
+};
+
 export default function ContactForm() {
   const [form, setForm] = useState<FormData>({
     fullName: "",
@@ -587,8 +598,8 @@ export default function ContactForm() {
 
     if (!form.phone.trim()) {
       newErrors.phone = "Phone / WhatsApp number is required.";
-    } else if (form.phone.replace(/\s/g, "").length < 7) {
-      newErrors.phone = "Please enter a valid phone number.";
+    } else if (!isValidPhoneNumber(form.phone)) {
+      newErrors.phone = "Please enter a valid international phone number.";
     }
 
     if (!form.quantityNeeded.trim()) {
@@ -834,7 +845,9 @@ export default function ContactForm() {
                     defaultCountry={selectedCountryCode as any}
                     country={selectedCountryCode as any}
                     value={form.phone}
-                    onChange={(value) => handleChange("phone", value || "")}
+                    onChange={(value) =>
+                      handleChange("phone", sanitizePhoneValue(value || ""))
+                    }
                     placeholder={
                       selectedCountryCode
                         ? "Enter phone / WhatsApp number"
@@ -888,7 +901,6 @@ export default function ContactForm() {
                   <option value="">Select product</option>
                   <option value="Gold Bars">Gold Bars</option>
                   <option value="Gold Nuggets">Gold Nuggets</option>
-                  <option value="Gold Dust">Gold Dust</option>
                 </select>
                 {errors.productInterest && (
                   <p className="mt-2 text-sm text-red-400">
@@ -939,9 +951,40 @@ export default function ContactForm() {
         <div className="space-y-6">
           <div className="rounded-[28px] border border-[#d4af37]/20 bg-gradient-to-br from-[#191919] to-[#101010] p-6 sm:p-8">
             <h2 className="text-2xl font-bold">Direct Contact</h2>
+
             <div className="mt-6 space-y-4 text-sm leading-8 text-white/70">
-              <p>Email: info@africagoldexporters.com</p>
-              <p>Phone: +256 701 523 269</p>
+              <p>
+                Email:{" "}
+                <a
+                  href="mailto:info@africagoldexporters.com?subject=Buyer%20Inquiry"
+                  className="font-medium text-[#f3d46b] transition hover:text-white hover:underline"
+                >
+                  info@africagoldexporters.com
+                </a>
+              </p>
+
+              <p>
+                Phone:{" "}
+                <a
+                  href="tel:+256701523269"
+                  className="font-medium text-[#f3d46b] transition hover:text-white hover:underline"
+                >
+                  +256 701 523 269
+                </a>
+              </p>
+
+              <p>
+                WhatsApp:{" "}
+                <a
+                  href="https://wa.me/256701523269?text=Hello%20I%20would%20like%20to%20discuss%20a%20gold%20purchase."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-[#25D366] transition hover:text-white hover:underline"
+                >
+                  Chat on WhatsApp
+                </a>
+              </p>
+
               <p>Location: Kampala, Uganda</p>
             </div>
           </div>
@@ -949,8 +992,8 @@ export default function ContactForm() {
           <div className="rounded-[28px] border border-white/10 bg-white/5 p-6 sm:p-8">
             <h2 className="text-2xl font-bold">Business Hours</h2>
             <div className="mt-6 space-y-3 text-sm text-white/70">
-              <p>Monday - Friday: 8:00 AM - 6:00 PM</p>
-              <p>Saturday: 9:00 AM - 2:00 PM</p>
+              <p>Monday – Friday: 08:00 – 18:00 (EAT / UTC+3)</p>
+              <p>Saturday: 09:00 – 14:00 (EAT / UTC+3)</p>
               <p>Sunday: By appointment</p>
             </div>
           </div>

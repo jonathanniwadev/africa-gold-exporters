@@ -1,50 +1,42 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Gold Products",
   description:
-    "Explore gold bars, gold nuggets, and gold dust presented for international buyer inquiries and export coordination.",
+    "Explore gold bars and gold nuggets presented for international buyer inquiries and export coordination.",
   alternates: {
     canonical: "/products",
   },
   openGraph: {
     title: "Gold Products | Africa Gold Exporters",
     description:
-      "View gold product categories including gold bars, nuggets, and gold dust for international sourcing discussions.",
+      "View gold product categories including gold bars and gold nuggets for international sourcing discussions.",
     url: "https://africagoldexporters.com/products",
-    images: ["/opengraph-image.png"],
   },
 };
 
 const products = [
   {
     title: "Gold Bars",
+    image: "/images/gold-bars.png",
     description:
-      "Export-ready gold bars for international buyers and refinery-oriented transactions.",
+      "Export-ready gold bars presented for international buyers, refinery-oriented transactions, and structured sourcing discussions.",
     details: [
-      "Bulk inquiries",
-      "Structured sourcing",
-      "Buyer-focused coordination",
+      "Bulk buyer inquiries",
+      "Refinery-oriented discussions",
+      "Structured sourcing support",
     ],
   },
   {
     title: "Gold Nuggets",
+    image: "/images/gold-granules.png",
     description:
-      "Natural gold nuggets sourced through supplier networks in East Africa.",
+      "Natural gold nuggets presented for serious buyer discussions, supplier coordination, and export-focused sourcing opportunities.",
     details: [
-      "Sourcing support",
-      "Professional coordination",
-      "Export presentation",
-    ],
-  },
-  {
-    title: "Gold Dust",
-    description:
-      "Gold dust prepared for verification, refining, and export discussions.",
-    details: [
-      "Assay-oriented process",
-      "Buyer communication",
-      "Facilitated export flow",
+      "Supplier network access",
+      "Professional buyer coordination",
+      "Export process presentation",
     ],
   },
 ];
@@ -69,27 +61,38 @@ export default function ProductsPage() {
 
       <section>
         <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-          <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-8 md:grid-cols-2">
             {products.map((product) => (
               <div
                 key={product.title}
-                className="rounded-[28px] border border-white/10 bg-white/5 p-6"
+                className="overflow-hidden rounded-[28px] border border-white/10 bg-white/5"
               >
-                <div className="mb-6 h-48 rounded-2xl bg-gradient-to-br from-[#2a2413] to-[#141414]" />
-                <h2 className="text-2xl font-bold">{product.title}</h2>
-                <p className="mt-4 text-sm leading-8 text-white/70">
-                  {product.description}
-                </p>
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={product.image}
+                    alt={product.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                </div>
 
-                <div className="mt-6 space-y-3">
-                  {product.details.map((detail) => (
-                    <div
-                      key={detail}
-                      className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white/80"
-                    >
-                      {detail}
-                    </div>
-                  ))}
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold">{product.title}</h2>
+                  <p className="mt-4 text-sm leading-8 text-white/70">
+                    {product.description}
+                  </p>
+
+                  <div className="mt-6 space-y-3">
+                    {product.details.map((detail) => (
+                      <div
+                        key={detail}
+                        className="rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-white/80"
+                      >
+                        {detail}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}

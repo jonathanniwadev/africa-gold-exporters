@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import MobileMenu from "@/components/MobileMenu";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import "./globals.css";
+
+const serif = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-serif",
+});
+
+const sans = Inter({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://africagoldexporters.com"),
@@ -21,7 +34,6 @@ export const metadata: Metadata = {
     "gold suppliers Africa",
     "gold bars Africa",
     "gold nuggets Africa",
-    "gold dust Africa",
     "gold export procedure",
     "gold sourcing East Africa",
   ],
@@ -73,13 +85,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
   { name: "Products", href: "/products" },
-  { name: "Purity Standards", href: "/purity-standards" },
-  { name: "Buyer Requirements", href: "/buyer-requirements" },
-  { name: "Transaction Process", href: "/transaction-process" },
-  { name: "Export Procedure", href: "/export-procedure" },
-  { name: "Verification", href: "/verification-compliance" },
-  { name: "Documentation", href: "/documentation" },
-  { name: "Contact", href: "/contact" },
+  { name: "Process", href: "/transaction-process" },
 ];
 
 const footerCompanyLinks = [
@@ -112,24 +118,40 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="bg-[#0b0b0b] text-white antialiased">
-        <header className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur">
+    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+      <body className="bg-[#070707] font-sans text-white antialiased">
+        <header className="sticky top-0 z-50 border-b border-[#d4af37]/10 bg-black/75 backdrop-blur-xl">
           <div className="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-            <Link
-              href="/"
-              className="text-lg font-bold tracking-wide sm:text-xl"
-            >
-              <span className="text-white">Africa</span>{" "}
-              <span className="text-[#d4af37]">Gold Exporters</span>
+            <Link href="/" className="group flex items-center gap-3 sm:gap-4">
+              <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-[#d4af37]/25 bg-[#111111] shadow-[0_0_20px_rgba(212,175,55,0.10)] sm:h-12 sm:w-12">
+                <Image
+                  src="/images/agelogo.png"
+                  alt="Africa Gold Exporters logo"
+                  fill
+                  className="object-contain p-1"
+                  priority
+                />
+              </div>
+
+              <div className="flex flex-col leading-none">
+                <span className="font-serif text-2xl font-semibold tracking-tight text-white sm:text-[1.9rem]">
+                  Africa{" "}
+                  <span className="text-[#d4af37] transition group-hover:text-[#f3d46b]">
+                    Gold Exporters
+                  </span>
+                </span>
+                <span className="mt-2 text-[10px] font-medium uppercase tracking-[0.35em] text-[#d4af37]/80 sm:text-[11px]">
+                  Premium Gold Trading
+                </span>
+              </div>
             </Link>
 
-            <nav className="hidden items-center gap-5 md:flex">
+            <nav className="hidden items-center gap-8 md:flex">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-sm text-white/75 transition hover:text-white"
+                  className="text-sm font-medium text-white/75 transition hover:text-[#f3d46b]"
                 >
                   {link.name}
                 </Link>
@@ -139,9 +161,10 @@ export default function RootLayout({
             <div className="hidden md:block">
               <Link
                 href="/contact"
-                className="rounded-xl bg-[#d4af37] px-4 py-2 text-sm font-semibold text-black transition hover:opacity-90"
+                className="group relative inline-flex items-center justify-center overflow-hidden border border-[#d4af37]/40 bg-gradient-to-r from-[#f3d46b] via-[#d4af37] to-[#b8871d] px-6 py-3 text-sm font-semibold text-black shadow-[0_8px_30px_rgba(212,175,55,0.18)] transition duration-300 hover:scale-[1.02] hover:shadow-[0_12px_40px_rgba(212,175,55,0.28)]"
               >
-                Inquiry
+                <span className="absolute inset-0 bg-white/10 opacity-0 transition group-hover:opacity-100" />
+                <span className="relative">Submit Buyer Inquiry</span>
               </Link>
             </div>
 
@@ -154,13 +177,40 @@ export default function RootLayout({
         <footer className="border-t border-white/10 bg-black">
           <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 xl:grid-cols-5 lg:px-8">
             <div>
-              <h3 className="text-lg font-bold text-[#d4af37]">
-                Africa Gold Exporters
-              </h3>
-              <p className="mt-4 text-sm leading-7 text-white/60">
+              <div className="flex items-center gap-3">
+                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border border-[#d4af37]/25 bg-[#111111] shadow-[0_0_20px_rgba(212,175,55,0.10)]">
+                  <Image
+                    src="/images/agelogo.png"
+                    alt="Africa Gold Exporters logo"
+                    fill
+                    className="object-contain p-1"
+                  />
+                </div>
+
+                <div>
+                  <h3 className="font-serif text-2xl font-semibold tracking-tight text-white">
+                    Africa{" "}
+                    <span className="text-[#d4af37]">Gold Exporters</span>
+                  </h3>
+                  <p className="mt-1 text-[10px] uppercase tracking-[0.32em] text-[#d4af37]/70">
+                    Premium Trading
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-5 text-sm leading-7 text-white/60">
                 Structured gold sourcing and export coordination for
                 international buyers across East Africa.
               </p>
+
+              <div className="mt-6">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center border border-[#d4af37]/30 px-4 py-2 text-sm font-medium text-[#f3d46b] transition hover:bg-[#d4af37]/10"
+                >
+                  Submit Buyer Inquiry
+                </Link>
+              </div>
             </div>
 
             <div>
@@ -220,9 +270,30 @@ export default function RootLayout({
               </h4>
               <div className="mt-4 space-y-3 text-sm text-white/60">
                 <p>Kampala, Uganda</p>
-                <p>info@africagoldexporters.com</p>
-                <p>+256 701 523 269</p>
+
+                <a
+                  href="mailto:info@africagoldexporters.com?subject=Buyer%20Inquiry"
+                  className="block transition hover:text-[#f3d46b]"
+                >
+                  info@africagoldexporters.com
+                </a>
+
+                <a
+                  href="tel:+256701523269"
+                  className="block transition hover:text-[#f3d46b]"
+                >
+                  +256 701 523 269
+                </a>
               </div>
+            </div>
+          </div>
+
+          <div className="border-t border-white/5">
+            <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-5 text-xs text-white/40 sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:px-8">
+              <p>© 2026 Africa Gold Exporters. All rights reserved.</p>
+              <p>
+                Premium sourcing presentation for serious international buyers.
+              </p>
             </div>
           </div>
         </footer>

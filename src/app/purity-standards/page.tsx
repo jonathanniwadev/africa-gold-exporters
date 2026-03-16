@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Purity Standards",
@@ -21,14 +22,17 @@ const products = [
   {
     title: "Gold Bars",
     text: "Gold bars are the most preferred form for international buyers because they are easier to assay, transport, and present for export discussions.",
+    image: "/images/gold-bars.jpg",
   },
   {
     title: "Gold Nuggets",
     text: "Gold nuggets are a natural form of raw gold and may be presented during sourcing discussions depending on supplier availability and transaction structure.",
+    image: "/images/gold-nuggets.jpeg",
   },
   {
     title: "Gold Dust",
     text: "Gold dust is another common raw form and is usually discussed together with assay and refining expectations before any export arrangement.",
+    image: "/images/gold-dust.jpeg",
   },
 ];
 

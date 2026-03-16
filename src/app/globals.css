@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
-@import "tailwindcss";
-
 :root {
   --background: #0b0b0b;
   --foreground: #ffffff;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", Arial, Helvetica, sans-serif;
 }
 
 html {
@@ -14,7 +14,10 @@ html {
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
@@ -28,25 +31,15 @@ button {
   font: inherit;
 }
 
-:root {
-  --background: #0b0b0b;
-  --foreground: #ffffff;
+.font-serif {
+  font-family: var(--font-serif);
 }
 
-html {
-  scroll-behavior: smooth;
+.font-sans {
+  font-family: var(--font-sans);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-* {
-  box-sizing: border-box;
-}
-
+/* Phone input styling */
 .phone-input-dark .PhoneInputInput {
   background: transparent;
   border: none;
@@ -70,4 +63,82 @@ body {
 
 .phone-input-dark .PhoneInputCountryIcon {
   box-shadow: none;
+}
+
+/* Luxury ticker animation */
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.ticker-track {
+  width: max-content;
+  animation: tickerScroll 28s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Gold pulse effect */
+@keyframes goldPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(212, 175, 55, 0.15);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.18);
+    transform: scale(1.02);
+  }
+}
+
+.gold-pulse {
+  animation: goldPulse 3.5s ease-in-out infinite;
+}
+
+/* Luxury gold glow helpers */
+.gold-glow {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.14);
+}
+
+.gold-border-glow {
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.18),
+    0 0 24px rgba(212, 175, 55, 0.08);
+}
+
+/* Optional subtle gold text gradient */
+.gold-text-gradient {
+  background: linear-gradient(135deg, #fff4c7 0%, #f3d46b 35%, #d4af37 65%, #b8871d 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Premium heading look */
+.luxury-heading {
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+/* Slightly richer card background */
+.luxury-panel {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.045),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(10px);
+}
+
+/* Better selection color */
+::selection {
+  background: rgba(212, 175, 55, 0.3);
+  color: white;
 }

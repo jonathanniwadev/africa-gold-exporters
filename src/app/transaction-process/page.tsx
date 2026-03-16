@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { Cormorant_Garamond } from "next/font/google";
+
+const cormorant = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Transaction Process",
   description:
-    "Understand the structured transaction process for gold sourcing including LOI, FCO, SPA, assay verification, shipment coordination, and transaction completion.",
+    "Understand the structured transaction process for gold sourcing including LOI, FCO, SPA, assay verification, shipment coordination and transaction completion.",
   alternates: {
     canonical: "/transaction-process",
   },
@@ -19,11 +26,11 @@ export const metadata: Metadata = {
 const steps = [
   {
     title: "Buyer Inquiry / LOI",
-    text: "The buyer submits an inquiry or Letter of Intent (LOI) outlining quantity requirements, destination country, and product interest.",
+    text: "The buyer submits an inquiry or Letter of Intent (LOI) outlining quantity requirements, destination country and product interest.",
   },
   {
     title: "Full Corporate Offer (FCO)",
-    text: "The seller issues a Full Corporate Offer describing product details, indicative terms, and initial transaction structure.",
+    text: "The seller issues a Full Corporate Offer describing product details, indicative terms and initial transaction structure.",
   },
   {
     title: "Sales & Purchase Agreement (SPA)",
@@ -35,7 +42,7 @@ const steps = [
   },
   {
     title: "Export Coordination",
-    text: "Export procedures involve documentation preparation, logistics planning, and coordination aligned with applicable regulations.",
+    text: "Export procedures involve documentation preparation, logistics planning and coordination aligned with applicable regulations.",
   },
   {
     title: "Shipment & Completion",
@@ -48,39 +55,46 @@ export default function TransactionProcessPage() {
     <main className="bg-[#0b0b0b] text-white">
       {/* HERO */}
       <section className="border-b border-white/10 bg-[#111111]">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#d4af37]">
             Transaction Flow
           </p>
 
-          <h1 className="mt-4 text-4xl font-bold sm:text-5xl">
+          <h1
+            className={`${cormorant.className} mt-4 max-w-4xl text-5xl leading-[0.95] sm:text-2xl lg:text-[4.6rem]`}
+          >
             Gold Transaction Process
           </h1>
 
-          <p className="mt-6 max-w-3xl text-lg text-white/70">
-            International gold sourcing discussions typically follow a
+          <p className="mt-5 max-w-3xl text-base leading-8 text-white/70 sm:text-lg">
+            International gold sourcing discussions typically follows a
             structured transaction framework. Understanding this process helps
-            buyers prepare for professional coordination and documentation flow.
+            buyers prepare for professional coordination, verification and
+            documentation flow.
           </p>
         </div>
       </section>
 
       {/* PROCESS STEPS */}
       <section>
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
           <div className="space-y-6">
             {steps.map((step, index) => (
               <div
                 key={step.title}
-                className="flex gap-6 rounded-3xl border border-white/10 bg-white/5 p-6"
+                className="group flex gap-5 rounded-[30px] border border-white/10 bg-white/5 p-6 transition duration-300 hover:border-[#d4af37]/35 hover:bg-white/[0.06]"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#d4af37] font-bold text-black">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#d4af37] text-lg font-bold text-black shadow-[0_0_25px_rgba(212,175,55,0.18)]">
                   {index + 1}
                 </div>
 
-                <div>
-                  <h2 className="text-xl font-semibold">{step.title}</h2>
-                  <p className="mt-3 text-white/70">{step.text}</p>
+                <div className="pt-1">
+                  <h2 className="text-2xl font-semibold text-white">
+                    {step.title}
+                  </h2>
+                  <p className="mt-3 max-w-4xl text-base leading-8 text-white/70">
+                    {step.text}
+                  </p>
                 </div>
               </div>
             ))}
@@ -90,27 +104,29 @@ export default function TransactionProcessPage() {
 
       {/* CTA */}
       <section className="border-t border-white/10 bg-[#111111]">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#d4af37]">
+        <div className="mx-auto max-w-7xl px-4 py-16 text-center sm:px-6 lg:px-8 lg:py-20">
+          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-[#d4af37]">
             Serious Buyer Inquiry
           </p>
 
-          <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+          <h2
+            className={`${cormorant.className} mt-4 text-4xl leading-tight sm:text-5xl`}
+          >
             Ready to discuss a gold transaction?
           </h2>
 
-          <p className="mt-6 mx-auto max-w-2xl text-white/70">
-            If you represent a refinery, trading company, bullion dealer, or
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-white/70">
+            If you represent a refinery, trading company, bullion dealer or
             investment group, submit your inquiry and our team will respond with
             more details regarding sourcing discussions.
           </p>
 
-          <a
+          <Link
             href="/contact"
-            className="mt-10 inline-flex items-center justify-center rounded-2xl bg-[#d4af37] px-8 py-3 text-sm font-semibold text-black hover:opacity-90"
+            className="mt-10 inline-flex items-center justify-center rounded-none border border-[#d4af37]/40 bg-gradient-to-r from-[#f3d46b] via-[#d4af37] to-[#b8871d] px-8 py-3 text-sm font-semibold text-black shadow-[0_10px_30px_rgba(212,175,55,0.18)] transition duration-300 hover:scale-[1.02]"
           >
             Submit Buyer Inquiry
-          </a>
+          </Link>
         </div>
       </section>
     </main>
