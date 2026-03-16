@@ -45,7 +45,7 @@ export default function MobileMenu() {
               onClick={() => setOpen(false)}
               className="mt-5 flex items-center justify-center rounded-xl bg-gradient-to-r from-[#f3d46b] via-[#d4af37] to-[#b8871d] px-5 py-3 text-sm font-semibold text-black shadow-[0_8px_25px_rgba(212,175,55,0.2)] transition hover:scale-[1.02]"
             >
-              Request Gold Offer
+              Submit Buyer Inquiry
             </Link>
           </div>
         </div>
