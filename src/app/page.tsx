@@ -17,18 +17,61 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Africa Gold Exporters",
+  metadataBase: new URL("https://africagoldexporters.com"),
+  title: "Africa Gold Exporters | Buy Gold Bars & Nuggets from Africa",
   description:
-    "Structured gold sourcing and export coordination for international buyers across East Africa.",
+    "Africa Gold Exporters supplies African gold bars and gold nuggets to international buyers including refineries, bullion dealers and trading companies. Licensed export framework, assay verification and secure CIF logistics.",
+  keywords: [
+    "Africa gold exporters",
+    "buy gold Africa",
+    "African gold suppliers",
+    "gold bars for sale Africa",
+    "gold nuggets Africa",
+    "gold suppliers Uganda",
+    "gold suppliers Africa",
+    "bullion suppliers Africa",
+    "buy African gold",
+    "African gold bars supplier",
+    "gold export Uganda",
+    "how to buy gold from Africa",
+  ],
   alternates: {
-    canonical: "/",
+    canonical: "https://africagoldexporters.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
   openGraph: {
-    title: "Africa Gold Exporters",
+    title: "Africa Gold Exporters | African Gold Bars & Nuggets Supplier",
     description:
-      "Structured gold sourcing and export coordination for international buyers across East Africa.",
+      "Trusted African gold sourcing for refineries, bullion dealers and international buyers. Licensed export framework, assay verification and secure CIF logistics.",
     url: "https://africagoldexporters.com",
-    images: ["/opengraph-image.png"],
+    siteName: "Africa Gold Exporters",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Africa Gold Exporters - African gold bars and nuggets supplier",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Africa Gold Exporters | Buy Gold Bars & Nuggets from Africa",
+    description:
+      "Licensed African gold exporter supplying gold bars and nuggets to international buyers.",
+    images: ["/twitter-image.png"],
   },
 };
 
@@ -36,36 +79,38 @@ const products = [
   {
     title: "Gold Bars",
     description:
-      "Preferred by refineries, bullion dealers and international buyers for structured sourcing discussions.",
+      "Gold bars presented for refinery buyers, bullion dealers and international trading companies seeking structured sourcing discussions.",
     image: "/images/gold-bars.png",
+    href: "/products",
   },
   {
     title: "Gold Nuggets",
     description:
-      "Natural gold product form discussed depending on supplier availability and buyer requirements.",
+      "Natural gold nuggets discussed subject to supplier availability, assay review and buyer transaction requirements.",
     image: "/images/gold-granules.png",
+    href: "/products",
   },
 ];
 
 const trustPoints = [
   {
     title: "Licensed Export Framework",
-    text: "Buyers need confidence that the transaction is being handled through a properly licensed export framework.",
+    text: "Professional buyer transactions require confidence in legal export structure, documentation flow and transaction discipline.",
     icon: BadgeCheck,
   },
   {
     title: "Insured Transaction Security",
-    text: "For serious buyers, transaction security matters. High-value discussions are supported through insured transaction handling.",
+    text: "High-value gold transactions require a process built around secure handling, clear risk awareness and professional engagement.",
     icon: ShieldCheck,
   },
   {
     title: "LBMA-Aligned Standards",
-    text: "Buyer expectations are structured around internationally recognized gold market standards and professional transaction discipline.",
+    text: "Buyer expectations are aligned with internationally recognized gold market standards and professional bullion trade practices.",
     icon: Scale,
   },
   {
     title: "Responsible Sourcing",
-    text: "Serious buyers look for transparency. Our process reflects responsible sourcing discussions and fair commercial engagement.",
+    text: "Serious buyers value transparency. Our process supports responsible sourcing discussions and structured commercial engagement.",
     icon: Gem,
   },
   {
@@ -75,7 +120,7 @@ const trustPoints = [
   },
   {
     title: "Assay Verification",
-    text: "Before buyers proceed, they need confidence in product quality. Assay and purity verification remain central to the process.",
+    text: "Professional assay and purity verification remain central to buyer confidence before transaction progression.",
     icon: ScanSearch,
   },
 ];
@@ -84,7 +129,7 @@ const processSteps = [
   "Buyer submits inquiry or Letter of Intent (LOI)",
   "Initial sourcing and product discussion begins",
   "Documentation and verification stages are reviewed",
-  "Assay and export coordination discussions follow",
+  "Assay, export coordination and transaction structure follow",
 ];
 
 const testimonialItems = [
@@ -114,15 +159,49 @@ const testimonialItems = [
   },
 ];
 
+const buyerNoticeItems = [
+  "Gold bars and nuggets sourcing discussions",
+  "Licensed and insured transaction framework",
+  "Assay, purity and verification awareness",
+  "Secure export and logistics coordination",
+];
+
 export default function HomePage() {
   return (
     <main className="bg-[#070707] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Africa Gold Exporters",
+            url: "https://africagoldexporters.com",
+            logo: "https://africagoldexporters.com/images/agelogo.png",
+            description:
+              "Africa Gold Exporters supplies African gold bars and gold nuggets to international buyers through licensed export framework, assay verification and secure CIF logistics.",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Kampala",
+              addressCountry: "Uganda",
+            },
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+256701523269",
+              contactType: "sales",
+              areaServed: "Worldwide",
+              availableLanguage: ["English"],
+            },
+          }),
+        }}
+      />
+
       {/* HERO */}
       <section className="relative isolate min-h-[calc(100vh-76px)] overflow-hidden border-b border-white/10">
         <div className="absolute inset-0">
           <Image
             src="/images/gold-hero.png"
-            alt="Gold bars and gold nuggets"
+            alt="African gold bars and gold nuggets for international buyers"
             fill
             priority
             className="object-cover object-center"
@@ -133,14 +212,14 @@ export default function HomePage() {
         </div>
 
         <div className="relative mx-auto flex min-h-[calc(100vh-76px)] max-w-7xl items-center px-4 py-10 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.2fr_0.8fr]">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
               <p className="gold-pulse inline-flex rounded-full border border-[#d4af37]/40 bg-[#d4af37]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-[#f3d46b] sm:text-xs">
                 Premium Gold Sourcing
               </p>
 
               <h1
-                className={`${cormorant.className} mt-5 max-w-5xl text-5xl leading-[0.9] sm:text-6xl lg:text-[5.8rem] xl:text-[6.4rem]`}
+                className={`${cormorant.className} mt-5 max-w-5xl text-5xl leading-[0.9] sm:text-6xl lg:text-[5.7rem] xl:text-[6.2rem]`}
               >
                 <span className="block whitespace-nowrap">Trusted Gold.</span>
                 <span className="block whitespace-nowrap text-[#f3d46b] italic">
@@ -149,8 +228,10 @@ export default function HomePage() {
               </h1>
 
               <p className="mt-5 max-w-2xl text-base leading-7 text-white/80 sm:text-[1.02rem]">
-                Africa’s premier source for high-purity African gold. Licensed,
-                insured and delivered globally through secure CIF logistics.
+                Africa Gold Exporters supplies African gold bars and gold
+                nuggets to international buyers. Licensed export framework,
+                assay verification and secure CIF logistics for refineries,
+                bullion dealers and trading companies.
               </p>
 
               <div className="mt-7 flex flex-col gap-4 sm:flex-row">
@@ -215,12 +296,7 @@ export default function HomePage() {
                 </p>
 
                 <div className="mt-6 space-y-3">
-                  {[
-                    "Gold bars and nuggets sourcing discussions",
-                    "Licensed and insured transaction framework",
-                    "Assay, purity and verification awareness",
-                    "Secure export and logistics coordination",
-                  ].map((item) => (
+                  {buyerNoticeItems.map((item) => (
                     <div
                       key={item}
                       className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/85"
@@ -240,7 +316,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* LUXURY TICKER BAR */}
+      {/* TRUST TICKER */}
       <section className="border-b border-white/10 bg-[#0c0c0c]">
         <div className="overflow-hidden py-5">
           <div className="ticker-track flex min-w-max items-center gap-10 whitespace-nowrap text-sm font-medium uppercase tracking-[0.28em] text-[#f3d46b]/90">
@@ -291,8 +367,8 @@ export default function HomePage() {
             </h2>
             <p className="mt-6 text-base leading-8 text-white/70">
               International buyers need clarity before moving forward. Our
-              process is designed to communicate trust, verification, security
-              and transaction structure from the very first inquiry.
+              process is structured to communicate trust, verification, security
+              and transaction direction from the very first inquiry.
             </p>
           </div>
 
@@ -331,6 +407,11 @@ export default function HomePage() {
               <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
                 Gold products presented for structured discussions
               </h2>
+              <p className="mt-4 text-base leading-8 text-white/70">
+                Explore our gold bars and gold nuggets presented for serious
+                international buyer inquiries and professional sourcing
+                discussions.
+              </p>
             </div>
 
             <Link
@@ -350,7 +431,7 @@ export default function HomePage() {
                 <div className="relative h-72 w-full">
                   <Image
                     src={product.image}
-                    alt={product.title}
+                    alt={product.description}
                     fill
                     className="object-cover transition duration-500 group-hover:scale-105"
                   />
@@ -362,6 +443,14 @@ export default function HomePage() {
                   <p className="mt-4 text-sm leading-7 text-white/70">
                     {product.description}
                   </p>
+                  <div className="mt-6">
+                    <Link
+                      href={product.href}
+                      className="inline-flex items-center justify-center rounded-2xl border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:bg-white/5"
+                    >
+                      Learn More
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}
@@ -387,10 +476,10 @@ export default function HomePage() {
 
             <div className="mt-8">
               <Link
-                href="/export-procedure"
+                href="/transaction-process"
                 className="inline-flex items-center justify-center rounded-2xl border border-white/15 px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/5"
               >
-                Explore Export Procedure
+                Explore Transaction Process
               </Link>
             </div>
           </div>
@@ -447,6 +536,46 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SEO CONTENT */}
+      <section className="border-b border-white/10 bg-[#0b0b0b]">
+        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-2">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#f3d46b]">
+                African Gold Supply
+              </p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+                Buy gold bars and nuggets from Africa
+              </h2>
+              <p className="mt-5 text-base leading-8 text-white/70">
+                Africa Gold Exporters supports serious international buyers
+                seeking African gold bars and gold nuggets through a structured
+                export framework. Our process is designed for refineries,
+                bullion dealers, trading companies, jewelry manufacturers and
+                investment groups that require clarity before moving forward.
+              </p>
+            </div>
+
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#f3d46b]">
+                Gold Export Coordination
+              </p>
+              <h2 className="mt-3 text-3xl font-bold sm:text-4xl">
+                Licensed sourcing, assay verification and secure logistics
+              </h2>
+              <p className="mt-5 text-base leading-8 text-white/70">
+                Buyers looking for African gold suppliers need more than a
+                product listing. They need a professional transaction path that
+                includes documentation review, assay verification, compliance
+                awareness and secure CIF logistics. Our presentation is built to
+                support that buyer journey from inquiry to transaction
+                coordination.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* PREMIUM CTA */}
       <section className="bg-[#0b0b0b]">
         <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
@@ -457,7 +586,7 @@ export default function HomePage() {
                   Serious Buyer Inquiry
                 </p>
                 <h2 className="mt-3 text-4xl font-bold sm:text-5xl">
-                  Ready to request a gold offer?
+                  Ready to begin a gold transaction discussion?
                 </h2>
                 <p className="mt-5 text-base leading-8 text-white/70">
                   Submit your inquiry with product interest, quantity
