@@ -549,10 +549,35 @@ export default function HomePage() {
               </h2>
               <p className="mt-5 text-base leading-8 text-white/70">
                 Africa Gold Exporters supports serious international buyers
-                seeking African gold bars and gold nuggets through a structured
-                export framework. Our process is designed for refineries,
-                bullion dealers, trading companies, jewelry manufacturers and
-                investment groups that require clarity before moving forward.
+                seeking{" "}
+                <Link
+                  href="/gold-bars-for-sale-africa"
+                  className="text-[#f3d46b] underline"
+                >
+                  gold bars for sale in Africa
+                </Link>{" "}
+                and{" "}
+                <Link href="/products" className="text-[#f3d46b] underline">
+                  African gold nuggets
+                </Link>
+                . Many buyers researching{" "}
+                <Link
+                  href="/gold-suppliers-uganda"
+                  className="text-[#f3d46b] underline"
+                >
+                  gold suppliers in Uganda
+                </Link>{" "}
+                or learning{" "}
+                <Link
+                  href="/how-to-buy-gold-africa"
+                  className="text-[#f3d46b] underline"
+                >
+                  how to buy gold from Africa
+                </Link>{" "}
+                begin with a structured sourcing discussion. Our process is
+                designed for refineries, bullion dealers, trading companies,
+                jewelry manufacturers and investment groups that require clarity
+                before moving forward.
               </p>
             </div>
 
@@ -564,12 +589,30 @@ export default function HomePage() {
                 Licensed sourcing, assay verification and secure logistics
               </h2>
               <p className="mt-5 text-base leading-8 text-white/70">
-                Buyers looking for African gold suppliers need more than a
-                product listing. They need a professional transaction path that
-                includes documentation review, assay verification, compliance
-                awareness and secure CIF logistics. Our presentation is built to
-                support that buyer journey from inquiry to transaction
-                coordination.
+                Buyers looking for{" "}
+                <Link
+                  href="/gold-suppliers-africa"
+                  className="text-[#f3d46b] underline"
+                >
+                  African gold suppliers
+                </Link>{" "}
+                need more than a product listing. They need a professional
+                transaction path that includes{" "}
+                <Link
+                  href="/verification-compliance"
+                  className="text-[#f3d46b] underline"
+                >
+                  verification and compliance procedures
+                </Link>
+                , assay review and secure export logistics. Understanding the
+                structured process of{" "}
+                <Link
+                  href="/transaction-process"
+                  className="text-[#f3d46b] underline"
+                >
+                  buying gold from Africa
+                </Link>{" "}
+                helps international buyers move forward with confidence.
               </p>
             </div>
           </div>
@@ -614,6 +657,32 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "Africa Gold Exporters",
+            url: "https://africagoldexporters.com",
+            logo: "https://africagoldexporters.com/images/agelogo.png",
+            description:
+              "Africa Gold Exporters supplies African gold bars and gold nuggets to international buyers through licensed export framework and secure export logistics.",
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Kampala",
+              addressCountry: "Uganda",
+            },
+            contactPoint: {
+              "@type": "ContactPoint",
+              telephone: "+256701523269",
+              contactType: "sales",
+              areaServed: "Worldwide",
+              availableLanguage: ["English"],
+            },
+          }),
+        }}
+      />
     </main>
   );
 }

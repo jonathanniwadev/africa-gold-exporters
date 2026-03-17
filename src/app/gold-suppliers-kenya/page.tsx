@@ -2,21 +2,62 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Gold Suppliers Kenya",
+  title: "Gold Suppliers in Kenya | African Gold Bars & Nuggets",
+
   description:
-    "Information for international buyers interested in gold sourcing discussions in Kenya including gold bars, nuggets, and gold dust.",
+    "Information for international buyers seeking gold suppliers in Kenya including African gold bars and gold nuggets. Learn about sourcing discussions, verification procedures and export coordination.",
+
+  keywords: [
+    "gold suppliers Kenya",
+    "Kenya gold suppliers",
+    "buy gold Kenya",
+    "gold bars Kenya",
+    "African gold suppliers",
+    "gold sourcing Kenya",
+    "gold exporters Kenya",
+    "African gold bars",
+  ],
+
   alternates: {
-    canonical: "/gold-suppliers-kenya",
+    canonical: "https://africagoldexporters.com/gold-suppliers-kenya",
   },
+
   openGraph: {
+    title: "Gold Suppliers in Kenya | Africa Gold Exporters",
+
+    description:
+      "Information for international buyers seeking African gold bars and nuggets through sourcing discussions connected to Kenya.",
+
+    url: "https://africagoldexporters.com/gold-suppliers-kenya",
+
+    siteName: "Africa Gold Exporters",
+
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Gold Suppliers Kenya - Africa Gold Exporters",
+      },
+    ],
+
+    locale: "en_US",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
     title: "Gold Suppliers Kenya | Africa Gold Exporters",
     description:
-      "Information for international buyers interested in sourcing gold through Kenya.",
-    url: "https://africagoldexporters.com/gold-suppliers-kenya",
-    images: ["/opengraph-image.png"],
+      "Information for international buyers seeking African gold bars and nuggets through Kenya.",
+    images: ["/twitter-image.png"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
   },
 };
-
 export default function GoldSuppliersKenyaPage() {
   return (
     <main className="bg-[#0b0b0b] text-white">
@@ -33,8 +74,8 @@ export default function GoldSuppliersKenyaPage() {
           <p className="mt-6 max-w-3xl text-lg text-white/70">
             Kenya is part of the wider East African trade environment where
             international buyers may explore sourcing discussions involving gold
-            bars, nuggets, and gold dust through regional supplier networks and
-            export facilitators.
+            bars and gold nuggets through regional supplier networks and export
+            facilitators.
           </p>
         </div>
       </section>
@@ -82,14 +123,6 @@ export default function GoldSuppliersKenyaPage() {
               <p className="mt-4 text-white/70">
                 Gold nuggets may be discussed depending on regional supplier
                 networks and sourcing availability.
-              </p>
-            </div>
-
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <h3 className="text-xl font-semibold">Gold Dust</h3>
-              <p className="mt-4 text-white/70">
-                Gold dust may be prepared for assay confirmation and refining
-                depending on buyer expectations and transaction structure.
               </p>
             </div>
           </div>
