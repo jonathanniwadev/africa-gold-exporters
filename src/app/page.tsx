@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Cormorant_Garamond } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 import {
   BadgeCheck,
   ShieldCheck,
@@ -11,9 +11,9 @@ import {
   Gem,
 } from "lucide-react";
 
-const cormorant = Cormorant_Garamond({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -212,17 +212,18 @@ export default function HomePage() {
         </div>
 
         <div className="relative mx-auto flex min-h-[calc(100vh-76px)] max-w-7xl items-center px-4 py-10 sm:px-6 lg:px-8">
-          <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.25fr_0.75fr]">
             <div>
               <p className="gold-pulse inline-flex rounded-full border border-[#d4af37]/40 bg-[#d4af37]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.32em] text-[#f3d46b] sm:text-xs">
                 Premium Gold Sourcing
               </p>
 
               <h1
-                className={`${cormorant.className} mt-5 max-w-5xl text-5xl leading-[0.9] sm:text-6xl lg:text-[5.7rem] xl:text-[6.2rem]`}
+                className={`${playfair.className} mt-5 max-w-[680px] text-[3.5rem] leading-[0.92] sm:text-[4.5rem] lg:text-[5.2rem] xl:text-[5.7rem]`}
               >
-                <span className="block whitespace-nowrap">Trusted Gold.</span>
-                <span className="block whitespace-nowrap text-[#f3d46b] italic">
+                <span className="block">Trusted African</span>
+                <span className="block">Gold Supply.</span>
+                <span className="block text-[#f3d46b] italic">
                   Global Reach.
                 </span>
               </h1>
@@ -282,7 +283,7 @@ export default function HomePage() {
                   Serious Buyer Notice
                 </p>
 
-                <h2 className="mt-3 text-2xl font-bold leading-tight lg:text-[2rem]">
+                <h2 className="mt-3 text-2xl font-bold leading-tight lg:text-[1.85rem]">
                   Professional inquiries only
                 </h2>
 
@@ -651,6 +652,18 @@ export default function HomePage() {
                   className="inline-flex items-center justify-center rounded-2xl border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/5 sm:text-base"
                 >
                   View Buyer Requirements
+                </Link>
+                <Link
+                  href="/is-it-safe-to-buy-gold-from-africa"
+                  className="text-[#f3d46b] underline"
+                >
+                  Is it safe to buy gold from Africa?
+                </Link>
+                <Link
+                  href="/how-gold-export-uganda-works"
+                  className="text-[#f3d46b] underline"
+                >
+                  How gold export from Uganda works
                 </Link>
               </div>
             </div>

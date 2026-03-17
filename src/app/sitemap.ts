@@ -21,6 +21,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/gold-suppliers-kenya", priority: 0.9 },
     { path: "/gold-bars-for-sale-africa", priority: 0.95 },
     { path: "/how-to-buy-gold-africa", priority: 0.95 },
+    { path: "/is-it-safe-to-buy-gold-from-africa", priority: 0.95 },
+    { path: "/how-gold-export-uganda-works", priority: 0.95 },
   ];
 
   return routes.map((route) => ({

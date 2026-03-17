@@ -100,18 +100,21 @@ const footerSupportLinks = [
   { name: "Export Procedure", href: "/export-procedure" },
   { name: "Verification & Compliance", href: "/verification-compliance" },
   { name: "Documentation", href: "/documentation" },
+  { name: "Buyer Resources", href: "/resources" },
   { name: "Contact", href: "/contact" },
 ];
 
 const footerSourcingLinks = [
   { name: "Buy Gold Africa", href: "/buy-gold-africa" },
+  { name: "Gold Bars for Sale Africa", href: "/gold-bars-for-sale-africa" },
   { name: "Gold Suppliers Africa", href: "/gold-suppliers-africa" },
   { name: "Gold Suppliers Uganda", href: "/gold-suppliers-uganda" },
   { name: "Gold Suppliers Kenya", href: "/gold-suppliers-kenya" },
-  { name: "Gold Bars for Sale Africa", href: "/gold-bars-for-sale-africa" },
   { name: "How to Buy Gold Africa", href: "/how-to-buy-gold-africa" },
+  { name: "Gold Safety Guide", href: "/is-it-safe-to-buy-gold-from-africa" },
+  { name: "Uganda Export Process", href: "/how-gold-export-uganda-works" },
+  { name: "Buyer Resources", href: "/resources" },
 ];
-
 export default function RootLayout({
   children,
 }: Readonly<{
