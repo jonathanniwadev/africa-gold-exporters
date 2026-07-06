@@ -282,10 +282,10 @@ export default function RootLayout({
                 </a>
 
                 <a
-                  href="tel:+256701523269"
+                  href="tel:+256763850195"
                   className="block transition hover:text-[#f3d46b]"
                 >
-                  +256 701 523 269
+                  +256 763 850 195
                 </a>
               </div>
             </div>
