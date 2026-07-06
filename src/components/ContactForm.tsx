@@ -969,7 +969,7 @@ export default function ContactForm() {
                   href="tel:+256763850195"
                   className="font-medium text-[#f3d46b] transition hover:text-white hover:underline"
                 >
-                  +256 701 523 269
+                  +256 763 850 195
                 </a>
               </p>
 
