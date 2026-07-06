@@ -966,7 +966,7 @@ export default function ContactForm() {
               <p>
                 Phone:{" "}
                 <a
-                  href="tel:+256701523269"
+                  href="tel:+256763850195"
                   className="font-medium text-[#f3d46b] transition hover:text-white hover:underline"
                 >
                   +256 701 523 269
@@ -976,7 +976,7 @@ export default function ContactForm() {
               <p>
                 WhatsApp:{" "}
                 <a
-                  href="https://wa.me/256701523269?text=Hello%20I%20would%20like%20to%20discuss%20a%20gold%20purchase."
+                  href="https://wa.me/256763850195?text=Hello%20I%20would%20like%20to%20discuss%20a%20gold%20purchase."
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-medium text-[#25D366] transition hover:text-white hover:underline"
