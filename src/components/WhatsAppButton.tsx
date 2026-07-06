@@ -1,5 +1,5 @@
 export default function WhatsAppButton() {
-  const phone = "256701523269";
+  const phone = "256763850195";
   const message =
     "Hello, I am interested in your gold export services. Please share more details.";
   const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
